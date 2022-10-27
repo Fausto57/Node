@@ -1,0 +1,28 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend para royalcookie",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "REST",
+    "API"
+  ],
+  "author": "Fausto M",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "2.0.20"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "etag": "^1.8.1",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "ini": "^3.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "sqlstring": "^2.3.3"
+  }
+}
