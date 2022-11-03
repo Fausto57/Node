@@ -1,5 +1,5 @@
 let routes = require('express').Router();
-const { Router } = require('express');
+const express = require('express');
 let cont = require('../../app/controllers/controller')
 
 routes.get('/', function(req, res){
@@ -16,11 +16,12 @@ routes.get('/todos', function(req, res){
     })
   })
 
-routes.get('/obtener', (req, res) => cont.obtener(req, res))
+routes.get('/obtener', cont.obtener)
 
-routes.get('/obtener/:id', (req, res) => cont.obtenerID(req, res))
+routes.get('/obtener/:id', cont.obtenerID)
 
 routes.get('/guardar/:id/:nombre/:apellido', (req, res) => cont.insertar(req, res))
 
+routes.post('/guardarM', express.json({type: '*/*'}), cont.insertarMuchos)
 
 module.exports = routes

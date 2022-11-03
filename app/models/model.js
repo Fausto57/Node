@@ -52,25 +52,17 @@ module.exports.ObtenerID = function(req, res){
 }
 
 //http://127.0.0.1:3000/v1/guardar  Método POST
-module.exports.Insertar = function(req, res){
-    var {id} = req.params;
-    var {nombre} = req.params;
-    var {apellido} = req.params;
-
-
-    var sql =  `insert into clientes(id, nombre, apellido) values (${id}, '${nombre}', '${apellido}');`;
+module.exports.InsertarMuchos = function(id, nombre, apellido){
+    var sql =  `insert into clientes(id, nombre, apellido) values (`+id+`, '`+nombre+`', '`+apellido+`');`;
 
         try{
             return conn.query(sql, (error, result) => {
                 if(error) throw error;
 
                 if(result.length > 0){
-                    res.json(result);
+                    console.log("se inserto")
                 }else{
-                    res.json({
-                        status: false,
-                        message: "Consulta fallida, el registro no existe"
-                      })
+                    console.log("no se inserto")
                 }
             })
         }catch(err){
