@@ -20,7 +20,7 @@ routes.get('/obtener', cont.obtener)
 
 routes.get('/obtener/:id', cont.obtenerID)
 
-routes.get('/guardar/:id/:nombre/:apellido', (req, res) => cont.insertar(req, res))
+routes.get('/guardar/:id/:nombre/:apellido', cont.insertar)
 
 routes.post('/guardarM', express.json({type: '*/*'}), cont.insertarMuchos)
 

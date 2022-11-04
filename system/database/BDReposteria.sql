@@ -1,50 +1,60 @@
-Create database Reposteria;
+Create Database Reposteria;
 Use Reposteria;
 
 Create Table Usuarios(
-    IDUsuario int,
+    IDUsuario Int,
     Nombre Varchar(50),
     Apellido Varchar(50),
     Correo Varchar(50),
     Contraseña Varchar(100),
     Direccion Varchar(50),
     telefono Integer,
-    IDRol int
+    IDRol Int
 );
 
 Create Table Roles(
-    IDRol int,
+    IDRol Int,
     Rol Varchar(50),
     Descripcion Varchar(100)
 );
 
 Create Table Producto(
-    IDProducto int,
+    IDProducto Int,
     Nombre Varchar(50),
     Descripcion Varchar(100)
 );
 
 Create Table Catalogo(
-    IDCatalogo int,
+    IDCatalogo Int,
     Toping Varchar(100),
-    Precio float,
-    IDProducto int
+    Precio Float,
+    IDProducto Int
 ); --Donde se pondria la informacion para el pastel personalizado?
 
 Create Table LineaPedido( --Sera el Carrito
     IDLineaPedido int,
-    IDCatalogo int,
-    Descripcion Varchar(100)
-    Imagen blob
+    Descripcion Varchar(100),
+    Estatus Varchar(50),
+    Imagen blob,
+    IDCatalogo Int,
+    IdPedido Int,
 );
 
 Create Table Pedido(
     IdPedido Int,
     FechaRecibido DateTime,
     FechaEntrega DateTime,
+    TipoEntrega Bit,
     Estatus Varchar(50),
-    Total Integer
-    IDCatalogo Int,
-    IDUsuario Int, 
-    IDLineaPedido Int
+    Total Integer,
+    IDUsuario Int
+);
+
+Create Table Pago(
+    IDPago Int,
+    Nombre Varchar(50),
+    NumeroTarjeta Integer,
+    CVV Int,
+    Total Float,
+    IdPedido Int
 );
