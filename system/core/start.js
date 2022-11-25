@@ -7,6 +7,10 @@ module.exports = function(app){
 
     app.use('/api', apiRoutes);
 
+    app.get('/favico.ico', (req, res) => {
+        res.sendStatus(404);
+    });
+
     InitApp(app);
 }
 
