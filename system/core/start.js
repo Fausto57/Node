@@ -13,5 +13,5 @@ module.exports = function(app){
 function InitApp(app){
     const port = process.env.PORT || 3000;
     app.use(bodyParser.json())
-    app.listen(port, () => console.log(`Corriendo en el puerto ${port}!`))
+    app.listen(port, () => console.log(`Corriendo en el puerto ${port}`))
 }
