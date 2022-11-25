@@ -5,7 +5,7 @@ var apiconfig = db.apiconfig
 
 //http://127.0.0.1:3000/v1/obtener  Método GET
 module.exports.Obtener = function(req, res){
-    var sql =  `SELECT * FROM prospectos`;
+    var sql =  `SELECT * FROM Roles`;
 
         try{
             return conn.query(sql, (error, result) => {
@@ -30,7 +30,7 @@ module.exports.Obtener = function(req, res){
 module.exports.ObtenerID = function(req, res){
     var {id} = req.params;
 
-    var sql =  `SELECT * FROM prospectos where id = ${id}`;
+    var sql =  `SELECT * FROM Roles where idRol = ${id}`;
 
         try{
             return conn.query(sql, (error, result) => {
