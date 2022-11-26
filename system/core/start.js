@@ -14,6 +14,8 @@ module.exports = function(app){
     InitApp(app);
 }
 
+//heroku restart -a backroyal
+
 function InitApp(app){
     const port = process.env.PORT || 3000;
     app.use(bodyParser.json())

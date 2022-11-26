@@ -1,7 +1,7 @@
 let db = require('../../system/database/database')
 
 var conn = db.conexion
-var apiconfig = db.apiconfig
+//var apiconfig = db.apiconfig
 
 //http://127.0.0.1:3000/v1/obtener  Método GET
 module.exports.Obtener = function(req, res){
@@ -59,7 +59,7 @@ module.exports.InsertarMuchos = function(id, nombre, apellido){
             return conn.query(sql, (error, result) => {
                 if(error) throw error;
 
-                if(result.length > 0){
+                if(!error){
                     console.log("se inserto")
                 }else{
                     console.log("no se inserto")
