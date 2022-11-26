@@ -17,9 +17,9 @@ conexion.connect(error => {
     console.log('Database conectada')
 })
 
-var apiconfig = apiconfig;
+//var apiconfig = apiconfig;
 
 module.exports = {
     conexion,
-    apiconfig
+    //apiconfig
 }
