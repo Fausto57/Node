@@ -24,6 +24,4 @@ routes.get('/guardar/:id/:nombre/:apellido', cont.insertar)
 
 routes.post('/guardarM', express.json({type: '*/*'}), cont.insertarMuchos)
 
-module.exports = {
-   routes
-}
+module.exports = routes;
