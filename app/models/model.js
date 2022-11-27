@@ -70,7 +70,3 @@ module.exports.InsertarMuchos = function(id, nombre, apellido){
             process.exit(1)
         }
 }
-
-setInterval(function () {
-    db.query('SELECT 1');
-}, 5000);
