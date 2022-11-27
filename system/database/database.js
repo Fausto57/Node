@@ -15,13 +15,13 @@ var conexion = mysql.createConnection({
 conexion.connect(error => {
     if(error) throw error;
     console.log('Database conectada')
-}, 3000);
-
+});
+/*
 setInterval(function () {
     conexion.query('SELECT 1');
     console.log('Viva la conexion')
 }, 5000);
-
+*/
 //var apiconfig = apiconfig;
 
 module.exports = {
