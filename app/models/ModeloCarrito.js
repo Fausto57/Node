@@ -6,7 +6,10 @@ var conn = db.conexion
 module.exports.CarritoUsuario = function(req, res){
     var {id} = req.params;
 
-    var sql =  `SELECT * FROM LineaPedidos WHERE Estatus = 'Carrito' AND IDUsuario = ${id}`;
+    var sql =  `SELECT C.Toping, C.Precio, P.Total FROM LineaPedidos L
+    Inner Join Catalogo C On L.IDCatalogo = C.IDCatalogo
+    Inner Join Pedidos P On L.IDPedido = P.IDPedido
+    WHERE L.Estatus = 'Carrito' AND IDUsuario = ${id}`;
 
         try{
             return conn.query(sql, (error, result) => {
