@@ -15,7 +15,7 @@ var conexion = mysql.createConnection({
 conexion.connect(error => {
     if(error) throw error;
     console.log('Database conectada')
-});
+}, 10000);
 /*
 setInterval(function () {
     conexion.query('SELECT 1');

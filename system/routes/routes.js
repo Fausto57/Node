@@ -1,27 +1,22 @@
 let routes = require('express').Router();
 const express = require('express');
-let cont = require('../../app/controllers/controller')
+let general = require('../../app/controllers/controller')
+let carrito = require('../../app/controllers/ControllerCarrito')
 
-routes.get('/', function(req, res){
-  res.json({
-    status: true,
-    message: "welcome"
-  })
-})
+// RUTAS EN GENERAL
 
-routes.get('/todos', function(req, res){
-    res.json({
-      status: true,
-      message: "ruta"
-    })
-  })
+routes.get('/obtener', general.obtener)
 
-routes.get('/obtener', cont.obtener)
+routes.get('/obtener/:id', general.obtenerID)
 
-routes.get('/obtener/:id', cont.obtenerID)
+routes.get('/guardar/:id/:nombre/:apellido', general.insertar)
 
-routes.get('/guardar/:id/:nombre/:apellido', cont.insertar)
+routes.post('/guardarM', express.json({type: '*/*'}), general.insertarMuchos)
 
-routes.post('/guardarM', express.json({type: '*/*'}), cont.insertarMuchos)
+// RUTAS PARA EL CARRITO
+
+routes.get('/CarritoObtiene/:id', carrito.carritoUsuario)
+
+routes.get('/CarritoElimina/:id', carrito.eliminaCarrito)
 
 module.exports = routes;
