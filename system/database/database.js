@@ -22,9 +22,7 @@ setInterval(function () {
     console.log('Manteniendo Conexion con la BD'); 
 }, 20000);
 
-//var apiconfig = apiconfig;
 
 module.exports = {
-    conexion,
-    //apiconfig
+    conexion
 }
