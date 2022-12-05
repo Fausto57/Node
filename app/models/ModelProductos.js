@@ -25,7 +25,7 @@ module.exports.ObtenerAlfajores = function(req, res){
 }
 
 module.exports.ObtenerGalletas = function(req, res){
-    var sql =  `SELECT * FROM Catalogo Where ID = 3`;
+    var sql =  `SELECT * FROM Catalogo Where IDCatalogo = 3`;
 
         try{
             return conn.query(sql, (error, result) => {
@@ -47,7 +47,7 @@ module.exports.ObtenerGalletas = function(req, res){
 }
 
 module.exports.ObtenerRoles = function(req, res){
-    var sql =  `SELECT * FROM Catalogo Where ID = 6`;
+    var sql =  `SELECT * FROM Catalogo Where IDCatalogo = 6`;
 
         try{
             return conn.query(sql, (error, result) => {
