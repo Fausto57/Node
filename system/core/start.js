@@ -20,7 +20,14 @@ module.exports = function(app){
 function InitApp(app){
     const port = process.env.PORT || 3000;
     app.use(bodyParser.json())
-    app.use(cors());
+
+    const corsOptions ={
+        origin:'http://localhost:8080', 
+        credentials:true,            //access-control-allow-credentials:true
+        optionSuccessStatus:200
+    }
+
+    app.use(cors(corsOptions));
 
     app.use((req, res, next) => {
         res.header('Access-Control-Allow-Origin', '*');
