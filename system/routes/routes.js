@@ -6,6 +6,13 @@ let productos = require('../../app/controllers/ControllerProductos')
 
 // RUTAS EN GENERAL
 
+
+routes.get('/favicon.ico', function(req, res) {
+res.writeHead(204);
+res.end();
+})
+
+
 routes.get('/obtener', general.obtener)
 
 routes.get('/obtener/:id', general.obtenerID)

@@ -20,7 +20,7 @@ conexion.connect(error => {
 setInterval(function () {
     conexion.query('SELECT 1');
     //console.log('Manteniendo Conexion con la BD'); 
-}, 20000);
+}, 10000);
 
 
 module.exports = {
