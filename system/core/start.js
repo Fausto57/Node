@@ -1,4 +1,5 @@
 const bodyParser = require('body-parser')
+const cors = require('cors');
 
 module.exports = function(app){
     let apiRoutes = require("../routes/routes");
@@ -19,5 +20,6 @@ module.exports = function(app){
 function InitApp(app){
     const port = process.env.PORT || 3000;
     app.use(bodyParser.json())
+    app.use(cors());
     app.listen(port, () => console.log(`Corriendo en el puerto ${port}`))
 }
