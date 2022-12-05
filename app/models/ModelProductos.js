@@ -2,9 +2,8 @@ let db = require('../../system/database/database')
 
 var conn = db.conexion
 
-//http://127.0.0.1:3000/v1/obtener  Método GET
-module.exports.Obtener = function(req, res){
-    var sql =  `SELECT * FROM LineaVenta WHERE Estatus = 'Terminado'`;
+module.exports.ObtenerAlfajores = function(req, res){
+    var sql =  `SELECT * FROM Catalogo Where IDCatalogo = 5`;
 
         try{
             return conn.query(sql, (error, result) => {
@@ -25,9 +24,8 @@ module.exports.Obtener = function(req, res){
         }
 }
 
-//http://127.0.0.1:3000/v1/obtener  Método GET
-module.exports.Obtener = function(req, res){
-    var sql =  `SELECT * FROM LineaVenta WHERE Estatus = 'Entregando'`;
+module.exports.ObtenerGalletas = function(req, res){
+    var sql =  `SELECT * FROM Catalogo Where ID = 3`;
 
         try{
             return conn.query(sql, (error, result) => {
@@ -48,8 +46,8 @@ module.exports.Obtener = function(req, res){
         }
 }
 
-module.exports.Obtener = function(req, res){
-    var sql =  `SELECT * FROM LineaVenta WHERE Estatus = 'Entregando'`;
+module.exports.ObtenerRoles = function(req, res){
+    var sql =  `SELECT * FROM Catalogo Where ID = 6`;
 
         try{
             return conn.query(sql, (error, result) => {
