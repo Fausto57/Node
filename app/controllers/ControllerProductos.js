@@ -3,14 +3,26 @@ const express = require('express');
 const app = express()
 app.use(express.json())
 
-module.exports.obtiene_Alfajores = function(req, res){
-    return modelProductos.ObtenerAlfajores(req, res);
+module.exports.ObtenerPasteles = function(req, res){
+    return modelProductos.Pasteles(req, res);
 }
 
-module.exports.obtiene_Galletas = function(req, res){
-    return modelProductos.ObtenerGalletas(req, res);
+module.exports.ObtenerPastelesPersonalizados = function(req, res){
+    return modelProductos.PastelesPersonalizados(req, res);
 }
 
-module.exports.obtiene_Roles = function(req, res){
-    return modelProductos.ObtenerRoles(req, res);
+module.exports.ObtenerGalletas = function(req, res){
+    return modelProductos.Galletas(req, res);
+}
+
+module.exports.ObtenerBollitos = function(req, res){
+    return modelProductos.Bollitos(req, res);
+}
+
+module.exports.ObtenerAlfajores = function(req, res){
+    return modelProductos.Alfajores(req, res);
+}
+
+module.exports.ObtenerRoles = function(req, res){
+    return modelProductos.Roles(req, res);
 }

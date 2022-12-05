@@ -7,7 +7,6 @@ var config = ini.parse(fs.readFileSync('system/config/config.ini', 'utf-8'))
 var conexion = mysql.createConnection({
     host: config.database.host,
     user: config.database.user,
-    port: config.database.port,
     password: config.database.password,
     database: config.database.database
 })
@@ -19,7 +18,7 @@ conexion.connect(error => {
 
 setInterval(function () {
     conexion.query('SELECT 1');
-}, 10000);
+}, 2000);
 
 
 module.exports = {

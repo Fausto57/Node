@@ -22,10 +22,17 @@ routes.get('/CarritoElimina/:id', carrito.eliminaCarrito)
 
 // RUTAS PARA PRODUCTOS 
 
-routes.get('/ObtenerAlfajores', productos.obtiene_Alfajores)
+routes.get('/ObtenerPasteles', productos.ObtenerPasteles)
 
-routes.get('/ObtenerRoles', productos.obtiene_Roles)
+routes.get('/ObtenerPastelesPersonalizados', productos.ObtenerPastelesPersonalizados)
 
-routes.get('/ObtenerGalletas', productos.obtiene_Galletas)
+routes.get('/ObtenerGalletas', productos.ObtenerGalletas)
+
+routes.get('/ObtenerBollitos', productos.ObtenerBollitos)
+
+routes.get('/ObtenerAlfajores', productos.ObtenerAlfajores)
+
+routes.get('/ObtenerRoles', productos.ObtenerRoles)
+
 
 module.exports = routes;
