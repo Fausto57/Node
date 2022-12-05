@@ -2,8 +2,9 @@ let db = require('../../system/database/database')
 
 var conn = db.conexion
 
-module.exports.Obtener = function(req, res){
-    var sql =  `SELECT * FROM Roles`;
+module.exports.ObtenerP = function(req, res){
+    var {id} = req.params;
+    var sql =  `SELECT * FROM LineaPedidos where IdPedido = ${id}`
 
         try{
             return conn.query(sql, (error, result) => {
@@ -24,10 +25,9 @@ module.exports.Obtener = function(req, res){
         }
 }
 
-module.exports.ObtenerID = function(req, res){
+module.exports.ActualizarP = function(id, descripción, cantidad, ){
     var {id} = req.params;
-
-    var sql =  `SELECT * FROM Roles where idRol = ${id}`;
+    var sql =  `Update Desc`
 
         try{
             return conn.query(sql, (error, result) => {
@@ -38,7 +38,7 @@ module.exports.ObtenerID = function(req, res){
                 }else{
                     res.json({
                         status: false,
-                        message: "Consulta fallida, el registro no existe"
+                        message: "Consulta fallida"
                       })
                 }
             })
@@ -48,18 +48,21 @@ module.exports.ObtenerID = function(req, res){
         }
 }
 
-//http://127.0.0.1:3000/v1/guardar  Método POST
-module.exports.InsertarMuchos = function(id, nombre, apellido){
-    var sql =  `insert into clientes(id, nombre, apellido) values (`+id+`, '`+nombre+`', '`+apellido+`');`;
+module.exports.EliminarP = function(req, res){
+    var {id} = req.params;
+    var sql =  `SELECT * FROM LineaPedidos where IdPedido = ${id}`
 
         try{
             return conn.query(sql, (error, result) => {
                 if(error) throw error;
 
-                if(!error){
-                    console.log("se inserto")
+                if(result.length > 0){
+                    res.json(result);
                 }else{
-                    console.log("no se inserto")
+                    res.json({
+                        status: false,
+                        message: "Consulta fallida"
+                      })
                 }
             })
         }catch(err){
