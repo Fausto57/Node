@@ -6,13 +6,6 @@ let productos = require('../../app/controllers/ControllerProductos')
 
 // RUTAS EN GENERAL
 
-
-routes.get('/favicon.ico', function(req, res) {
-res.writeHead(204);
-res.end();
-})
-
-
 routes.get('/obtener', general.obtener)
 
 routes.get('/obtener/:id', general.obtenerID)
@@ -29,10 +22,10 @@ routes.get('/CarritoElimina/:id', carrito.eliminaCarrito)
 
 // RUTAS PARA PRODUCTOS 
 
-routes.get('/ObtenerAlfajores/', productos.obtiene_Alfajores)
+routes.get('/ObtenerAlfajores', productos.obtiene_Alfajores)
 
-routes.get('/ObtenerRoles/', productos.obtiene_Roles)
+routes.get('/ObtenerRoles', productos.obtiene_Roles)
 
-routes.get('/ObtenerGalletas/', productos.obtiene_Galletas)
+routes.get('/ObtenerGalletas', productos.obtiene_Galletas)
 
 module.exports = routes;
