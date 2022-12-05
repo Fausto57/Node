@@ -1,9 +1,7 @@
 let db = require('../../system/database/database')
 
 var conn = db.conexion
-//var apiconfig = db.apiconfig
 
-//http://127.0.0.1:3000/v1/obtener  Método GET
 module.exports.Obtener = function(req, res){
     var sql =  `SELECT * FROM Roles`;
 

@@ -2,7 +2,6 @@ let db = require('../../system/database/database')
 
 var conn = db.conexion
 
-//http://127.0.0.1:3000/v1/obtener  Método GET
 module.exports.CarritoUsuario = function(req, res){
     var {id} = req.params;
 
