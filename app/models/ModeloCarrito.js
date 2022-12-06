@@ -2,7 +2,7 @@ let db = require('../../system/database/database')
 
 var conn = db.conexion
 
-module.exports.CarritoUsuario = function(req, res){
+module.exports.CarritoU = function(req, res){
     var {id} = req.params;
 
     var sql =  `SELECT C.Toping, C.Precio, P.Total FROM LineaPedidos L
@@ -29,7 +29,7 @@ module.exports.CarritoUsuario = function(req, res){
         }
 }
 
-module.exports.EliminaCarrito = function(req, res){
+module.exports.EliminaC = function(req, res){
     var {id} = req.params;
 
     var sql =  `DELETE FROM lineapedidos WHERE IDLineaPedido = ${id}`;
@@ -45,6 +45,25 @@ module.exports.EliminaCarrito = function(req, res){
                         status: false,
                         message: "Consulta fallida"
                       })
+                }
+            })
+        }catch(err){
+            console.log(err)
+            process.exit(1)
+        }
+}
+
+module.exports.AgregaC = function(idUser, Cantidad, IDCatalogo){
+    var sql =  `call InsertarDelCatalogo (`+idUser+`, `+Cantidad+`, `+IDCatalogo+`);`;
+
+        try{
+            return conn.query(sql, (error, result) => {
+                if(error) throw error;
+
+                if(!error){
+                    console.log("se inserto")
+                }else{
+                    console.log("no se inserto")
                 }
             })
         }catch(err){

@@ -20,6 +20,8 @@ routes.get('/CarritoObtiene/:id', carrito.carritoUsuario)
 
 routes.get('/CarritoElimina/:id', carrito.eliminaCarrito)
 
+routes.post('/AgregarCarrito', express.json({type: '*/*'}), carrito.AgregaAlCarrito)
+
 // RUTAS PARA PRODUCTOS 
 
 routes.get('/ObtenerPasteles', productos.ObtenerPasteles)

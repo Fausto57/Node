@@ -4,7 +4,7 @@ var conn = db.conexion
 
 module.exports.ObtenerP = function(req, res){
     var {id} = req.params;
-    var sql =  `SELECT * FROM LineaPedidos where IdPedido = ${id}`
+    var sql =  `SELECT * FROM LineaPedidos where IdPedido = ${id} And Estatus = 'Carrito'`
 
         try{
             return conn.query(sql, (error, result) => {
