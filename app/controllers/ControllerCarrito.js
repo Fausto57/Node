@@ -12,5 +12,5 @@ module.exports.eliminaCarrito = function(req, res){
 }
 
 module.exports.AgregaAlCarrito = function(req, res){
-    return model.AgregaC(req.body.idUser, req.body.Cantidad, req.body.idCatalogo);
+    return model.AgregaC(req.body.idUser, req.body.Cantidad, req.body.idCatalogo, res);
 }
