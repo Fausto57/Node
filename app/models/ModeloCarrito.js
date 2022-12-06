@@ -61,10 +61,6 @@ module.exports.AgregaC = function(idUser, Cantidad, IDCatalogo){
                 if(error) throw error;
 
                 if(!error){
-                    res.json({
-                        status: true,
-                        message: "Post Exitoso"
-                      })
                     console.log("se inserto")
                 }else{
                     console.log("no se inserto")
