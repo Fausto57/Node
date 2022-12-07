@@ -3,6 +3,7 @@ const express = require('express');
 let general = require('../../app/controllers/controller')
 let carrito = require('../../app/controllers/ControllerCarrito')
 let productos = require('../../app/controllers/ControllerProductos')
+let repartidor = require('../../app/controllers/ControllerRepartidor')
 
 // RUTAS EN GENERAL
 
@@ -35,6 +36,12 @@ routes.get('/ObtenerBollitos', productos.ObtenerBollitos)
 routes.get('/ObtenerAlfajores', productos.ObtenerAlfajores)
 
 routes.get('/ObtenerRoles', productos.ObtenerRoles)
+
+// RUTAS PARA EL REPARTIDOR
+routes.get('/OTerminados', repartidor.ObtenerTerminados)
+
+routes.get('/OEntrega', repartidor.ObtenerEntregas)
+
 
 
 module.exports = routes;
