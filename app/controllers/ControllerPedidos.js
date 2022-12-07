@@ -14,3 +14,7 @@ module.exports.ActualizarPedido = function(req, res){
 module.exports.EliminarPedido = function(req, res){
     return modelProductos.EliminarP(req, res);
 }
+
+module.exports.MostrarPedido = function(req, res){
+    return modelProductos.MostrarPedidos(req, res);
+}

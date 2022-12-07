@@ -4,6 +4,7 @@ let general = require('../../app/controllers/controller')
 let carrito = require('../../app/controllers/ControllerCarrito')
 let productos = require('../../app/controllers/ControllerProductos')
 let repartidor = require('../../app/controllers/ControllerRepartidor')
+let pedidos = require('../../app/controllers/ControllerPedidos')
 
 // RUTAS EN GENERAL
 
@@ -22,6 +23,9 @@ routes.get('/CarritoObtiene/:id', carrito.carritoUsuario)
 routes.get('/CarritoElimina/:id', carrito.eliminaCarrito)
 
 routes.post('/AgregarCarrito', express.json({type: '*/*'}), carrito.AgregaAlCarrito)
+
+// RUTAS PARA LOS PEDIDOS
+routes.get('/Pedidos/:id', pedidos.MostrarPedido)
 
 // RUTAS PARA PRODUCTOS 
 
