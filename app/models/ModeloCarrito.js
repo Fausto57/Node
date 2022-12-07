@@ -80,8 +80,9 @@ module.exports.AgregaC = function(idUser, Cantidad, IDCatalogo, res){
         }
 }
 
-module.exports.AgregaCPasteles = function(idUser, Cantidad, IDCatalogo, res){
-    var sql =  `call InsertarDelCatalogo (`+idUser+`, `+Cantidad+`, `+IDCatalogo+`);`;
+module.exports.AgregaCPasteles = function(idUser, Tamaño, Estilo, Fecha, Descripcion, Imagen, idProducto, res){
+    var sql =  `call InsertarDelCatalogo (`+idUser+`, '`+Tamaño+`', '`+Estilo+`', '`+Fecha+`', 
+    '`+Descripcion+`', '`+Imagen+`', `+idProducto+`);`;
 
         try{
             return conn.query(sql, (error, result) => {
@@ -90,7 +91,7 @@ module.exports.AgregaCPasteles = function(idUser, Cantidad, IDCatalogo, res){
                 if(!error){
                     res.json({
                         status: true,
-                        message: "Consulta Post Exitosa"
+                        message: "Consulta Post Exitosa, Pasteles Agregados"
                       })
                     console.log("se inserto")
                 }else{

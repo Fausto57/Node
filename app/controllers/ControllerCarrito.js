@@ -16,5 +16,6 @@ module.exports.AgregaAlCarrito = function(req, res){
 }
 
 module.exports.AgregaPasteles = function(req, res){
-    return model.AgregaC(req.body.idUser, req.body.Cantidad, req.body.idCatalogo, res);
+    return model.AgregaCPasteles(req.body.idUser, req.body.Tamaño, req.body.Estilo, 
+        req.body.Fecha, req.body.Descripcion, req.body.Imagen, req.body.idProd, res);
 }
