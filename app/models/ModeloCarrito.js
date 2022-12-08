@@ -81,7 +81,7 @@ module.exports.AgregaC = function(idUser, Cantidad, IDCatalogo, res){
 }
 
 module.exports.AgregaCPasteles = function(idUser, Tamaño, Estilo, Fecha, Descripcion, Imagen, idProducto, res){
-    var sql =  `call InsertarDelCatalogo (`+idUser+`, '`+Tamaño+`', '`+Estilo+`', '`+Fecha+`', 
+    var sql =  `call InsertarPasteles (`+idUser+`, '`+Tamaño+`', '`+Estilo+`', '`+Fecha+`', 
     '`+Descripcion+`', '`+Imagen+`', `+idProducto+`);`;
 
         try{
