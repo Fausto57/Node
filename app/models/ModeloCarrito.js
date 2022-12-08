@@ -108,13 +108,13 @@ module.exports.AgregaCPasteles = function(idUser, Tamaño, Estilo, Fecha, Descri
         }
 }
 
-module.exports.ObtenerPedidos = function(idUser, res){
-
+module.exports.ObtenerPedidos = function(req, res){
+    var {id} = req.params;
     var sql =  `Select L.IDLineaPedido, P.Nombre, L.Estatus, C.Precio, C.Toping, L.Cantidad 
     from LineaPedidos L
     inner Join Catalogo C On L.IDCatalogo = C.IDCatalogo
     inner Join Productos P On P.IdProducto = C.IDProducto
-    Where L.IDPedido = `+idUser
+    Where L.IDPedido = ${id}`;
 
     try{
         return conn.query(sql, (error, result) => {
@@ -163,10 +163,9 @@ module.exports.ObtenerCarrito = function(req, res){
     }
 }
 
-module.exports.PagarCarrito = function(req, res){
-    var {id} = req.params;
+module.exports.PagarCarrito = function(idUser, res){
 
-    var sql =  `Call PagarCarrito(${id})`;
+    var sql =  `Call PagarCarrito(`+idUser+`)`;
 
     try{
         return conn.query(sql, (error, result) => {
