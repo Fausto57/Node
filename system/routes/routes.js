@@ -32,6 +32,8 @@ routes.post('/AgregarCarrito', express.json({type: '*/*'}), carrito.AgregaAlCarr
 
 routes.post('/AgregarPasteles', express.json({type: '*/*'}), carrito.AgregaPasteles)
 
+routes.post('/ModEstatus', express.json({type: '*/*'}), carrito.ModificaEstatus)
+
 // RUTAS PARA LOS PEDIDOS
 routes.get('/Pedidos/:id', pedidos.MostrarPedido)
 

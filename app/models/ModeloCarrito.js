@@ -171,13 +171,46 @@ module.exports.PagarCarrito = function(idUser, res){
         return conn.query(sql, (error, result) => {
             if(error) throw error;
 
-            if(result.length > 0){
-                res.json(result);
+            if(!error){
+                res.json({
+                    status: true,
+                    message: "Consulta Post Exitosa, Pasteles Pagados"
+                  })
+                console.log("se inserto")
             }else{
                 res.json({
                     status: false,
                     message: "Consulta fallida"
                   })
+                console.log("no se inserto")
+            }
+        })
+    }catch(err){
+        console.log(err)
+        process.exit(1)
+    }
+}
+
+module.exports.UpdateStatus = function(idLinea, Estatus, res){
+
+    var sql =  `Update LineaPEdidos Set Estatus = '`+Estatus+`' where idLineaPedido = `+idLinea;
+
+    try{
+        return conn.query(sql, (error, result) => {
+            if(error) throw error;
+
+            if(!error){
+                res.json({
+                    status: true,
+                    message: "Consulta Post Exitosa, Pasteles Pagados"
+                  })
+                console.log("se inserto")
+            }else{
+                res.json({
+                    status: false,
+                    message: "Consulta fallida"
+                  })
+                console.log("no se inserto")
             }
         })
     }catch(err){

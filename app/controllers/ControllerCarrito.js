@@ -31,3 +31,7 @@ module.exports.obtenerCarrito = function(req, res){
 module.exports.pagarCarrito = function(req, res){
     return model.PagarCarrito(req.body.idUser, res);
 }
+
+module.exports.ModificaEstatus = function(req, res){
+    return model.UpdateStatus(req.body.idLinea, req.body.Estatus, res);
+}
