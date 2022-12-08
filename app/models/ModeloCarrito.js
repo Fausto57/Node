@@ -145,7 +145,7 @@ module.exports.ObtenerCarrito = function(req, res){
     Inner Join Catalogo C On L.IDCatalogo = C.IDCatalogo
     Inner Join Productos Pr On P.IdProducto = Pr.IDProducto
     Inner Join Pedidos Pe On Pe.IDPedido = L.IDPedido
-    Where Pe.IDUsuario = ${id} And L.Estatus = 'En El Carrito' Or L.Estatus = 'Por Autorizar'`;
+    Where L.Estatus = 'En El Carrito' Or L.Estatus = 'Por Autorizar' And Pe.IDUsuario = ${id}`;
 
     try{
         return conn.query(sql, (error, result) => {
