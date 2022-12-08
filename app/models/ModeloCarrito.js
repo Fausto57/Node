@@ -140,12 +140,11 @@ module.exports.ObtenerPedidos = function(req, res){
 module.exports.ObtenerCarrito = function(req, res){
     var {id} = req.params;
 
-    var sql =  `Select L.IdPedido, Pr.Nombre, P.Descripcion, C.Toping, L.Cantidad, C.Precio from Pasteles P
+    var sql =  `Select distinct L.idPedido, Pr.Nombre, P.Descripcion, C.Toping, L.Cantidad, C.Precio, L.Estatus from Pasteles P
     Inner Join LineaPedidos L On L.IDLineaPedido = P.IDLineaPedidos
-    Inner Join Catalogo C On L.IDCatalogo = C.IDCatalogo
-    Inner Join Productos Pr On P.IdProducto = C.IDProducto
-    Inner Join Pedidos Pe On Pe.IDPedido = L.IDPedido
-    Where L.Estatus = 'En El Carrito' Or L.Estatus = 'Por Autorizar' And Pe.IDUsuario = ${id}
+    left Join Catalogo C On L.IDCatalogo = C.IDCatalogo
+    right Join Productos Pr On P.IdProducto = C.IDProducto
+    Where L.Estatus = 'En El Carrito' Or L.Estatus = 'Por Autorizar' And L.IDPedido = ${id}
     Order by (Pr.Nombre)`;
 
     try{
