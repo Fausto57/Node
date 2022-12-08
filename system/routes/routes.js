@@ -24,7 +24,9 @@ routes.get('/CarritoElimina/:id', carrito.eliminaCarrito)
 
 routes.get('/ObtenerPedido/:id', carrito.obtenerPedido)
 
-routes.get('/ObtenerCarrito/:id', carrito.obtenerCarrito) 
+routes.get('/ObtenerCarrito/:id', carrito.obtenerCarrito)
+
+routes.get('/PagarCarrito/:id', carrito.pagarCarrito)
 
 routes.post('/AgregarCarrito', express.json({type: '*/*'}), carrito.AgregaAlCarrito)
 

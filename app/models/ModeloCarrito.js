@@ -165,3 +165,27 @@ module.exports.ObtenerCarrito = function(req, res){
         process.exit(1)
     }
 }
+
+module.exports.PagarCarrito = function(req, res){
+    var {id} = req.params;
+
+    var sql =  `Call PagarCarrito(${id})`;
+
+    try{
+        return conn.query(sql, (error, result) => {
+            if(error) throw error;
+
+            if(result.length > 0){
+                res.json(result);
+            }else{
+                res.json({
+                    status: false,
+                    message: "Consulta fallida"
+                  })
+            }
+        })
+    }catch(err){
+        console.log(err)
+        process.exit(1)
+    }
+}
