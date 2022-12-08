@@ -20,6 +20,10 @@ module.exports.AgregaPasteles = function(req, res){
         req.body.Fecha, req.body.Descripcion, req.body.Imagen, req.body.idProd, res);
 }
 
-module.exports.ObtenerCarrito = function(req, res){
+module.exports.obtenerPedido = function(req, res){
     return model.ObtenerPedidos(req, res);
+}
+
+module.exports.obtenerCarrito = function(req, res){
+    return model.ObtenerCarrito(req, res);
 }
