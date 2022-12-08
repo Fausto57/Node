@@ -114,7 +114,7 @@ module.exports.ObtenerPedidos = function(idUser, res){
     from LineaPedidos L
     inner Join Catalogo C On L.IDCatalogo = C.IDCatalogo
     inner Join Productos P On P.IdProducto = C.IDProducto
-    Where L.IDPedido = `+idUser+`;`
+    Where L.IDPedido = `+idUser
 
     try{
         return conn.query(sql, (error, result) => {
