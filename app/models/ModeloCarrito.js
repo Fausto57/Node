@@ -193,7 +193,7 @@ module.exports.PagarCarrito = function(idUser, res){
 
 module.exports.UpdateStatus = function(idLinea, Estatus, res){
 
-    var sql =  `Update LineaPEdidos Set Estatus = '`+Estatus+`' where idLineaPedido = `+idLinea;
+    var sql =  `Update LineaPEdidos Set Estatus = '`+Estatus+`' where idLineaPedido = `+idLinea
 
     try{
         return conn.query(sql, (error, result) => {
