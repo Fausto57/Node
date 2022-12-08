@@ -108,14 +108,13 @@ module.exports.AgregaCPasteles = function(idUser, Tamaño, Estilo, Fecha, Descri
         }
 }
 
-module.exports.ObtenerPedidos = function(req, res){
-    var {id} = req.params;
+module.exports.ObtenerPedidos = function(idUser, res){
 
     var sql =  `Select L.IDLineaPedido, P.Nombre, L.Estatus, C.Precio, C.Toping, L.Cantidad 
     from LineaPedidos L
     inner Join Catalogo C On L.IDCatalogo = C.IDCatalogo
     inner Join Productos P On P.IdProducto = C.IDProducto
-    Where L.IDPedido = ${id}`;
+    Where L.IDPedido = `+idUser+`;`
 
     try{
         return conn.query(sql, (error, result) => {
