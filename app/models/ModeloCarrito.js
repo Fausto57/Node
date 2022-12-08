@@ -137,7 +137,7 @@ module.exports.ObtenerPedidos = function(req, res){
     }
 }
 
-module.exports.ObtenerPedidos = function(req, res){
+module.exports.ObtenerCarrito = function(req, res){
     var {id} = req.params;
 
     var sql =  `Select L.IDLineaPedido, Pr.Nombre, P.Descripcion, C.Toping, L.Cantidad, C.Precio, L.Estatus from Pasteles P
