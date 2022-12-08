@@ -19,3 +19,7 @@ module.exports.AgregaPasteles = function(req, res){
     return model.AgregaCPasteles(req.body.idUser, req.body.Tamaño, req.body.Estilo, 
         req.body.Fecha, req.body.Descripcion, req.body.Imagen, req.body.idProd, res);
 }
+
+module.exports.ObtenerCarrito = function(req, res){
+    return model.ObtenerPedidos(req, res);
+}
