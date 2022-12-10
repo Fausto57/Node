@@ -4,7 +4,7 @@ const cors = require('cors');
 module.exports = function(app){
     let apiRoutes = require("../routes/routes");
 
-    app.get('/', (req, res) => res.send('Hello World Node v2!'));
+    app.get('/', (req, res) => res.send('Bienvenido a nuestra api de RoyalCookie. Todas nuestas rutas para consumir nuestra api empiezan por https://royalback.herokuapp.com/api/'));
 
     app.use('/api', apiRoutes);
 
