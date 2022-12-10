@@ -4,7 +4,7 @@ const cors = require('cors');
 module.exports = function(app){
     let apiRoutes = require("../routes/routes");
 
-    app.get('/', (req, res) => res.send('Bienvenido a nuestra api de RoyalCookie. Todas nuestas rutas para consumir nuestra api empiezan por https://royalback.herokuapp.com/api/'));
+    app.get('/', (req, res) => res.send('Bienvenido a nuestra api de RoyalCookie. Todas nuestras rutas para consumir nuestra api empiezan por https://royalback.herokuapp.com/api/'));
 
     app.use('/api', apiRoutes);
 
@@ -14,8 +14,6 @@ module.exports = function(app){
 
     InitApp(app);
 }
-
-//heroku restart -a backroyal
 
 function InitApp(app){
     const port = process.env.PORT || 3000;
