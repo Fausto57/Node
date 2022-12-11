@@ -4,7 +4,7 @@ var conn = db.conexion
 
 //http://127.0.0.1:3000/v1/obtener  Método GET
 module.exports.stTerminados = function(req, res){
-    var sql =  `Select L.IDPedido, Concat(U.Nombre, ' ', U.Apellido) as Nombre, U.Direccion  
+    var sql =  `Select L.IDPedido, Concat(U.Nombre, ' ', U.Apellido) as Nombre, U.Direccion, C.Toping    
     From Usuarios U
     Inner Join Pedidos P On U.IDUsuario = P.IDUsuario
     Inner Join LineaPedidos L On P.IDPedido = L.IDPedido
@@ -31,7 +31,7 @@ module.exports.stTerminados = function(req, res){
 
 //http://127.0.0.1:3000/v1/obtener  Método GET
 module.exports.stEntrega = function(req, res){
-    var sql =  `Select L.IDPedido, Concat(U.Nombre, ' ', U.Apellido) as Nombre, U.Direccion  
+    var sql =  `Select L.IDPedido, Concat(U.Nombre, ' ', U.Apellido) as Nombre, U.Direccion, C.Toping    
     From Usuarios U
     Inner Join Pedidos P On U.IDUsuario = P.IDUsuario
     Inner Join LineaPedidos L On P.IDPedido = L.IDPedido
