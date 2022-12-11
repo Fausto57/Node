@@ -61,6 +61,8 @@ routes.get('/ObtenerTerminados', repartidor.ObtenerTerminados)
 
 routes.get('/ObtenerEntrega', repartidor.ObtenerEntregas)
 
+routes.post('/UpdateTerminados', express.json({type: '*/*'}), repartidor.ModificaEstatusTer)
 
+routes.post('/UpdateEntrega', express.json({type: '*/*'}), repartidor.ModificaEstatusEnt)
 
 module.exports = routes;

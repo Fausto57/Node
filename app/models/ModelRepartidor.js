@@ -9,7 +9,7 @@ module.exports.stTerminados = function(req, res){
     Inner Join Pedidos P On U.IDUsuario = P.IDUsuario
     Inner Join LineaPedidos L On P.IDPedido = L.IDPedido
     Inner Join Catalogo C On L.IDCatalogo = C.IDCatalogo
-    Where L.Estatus = 'Autorizado'`;
+    Where L.Estatus = 'TERMINADO'`;
 
         try{
             return conn.query(sql, (error, result) => {
@@ -37,7 +37,7 @@ module.exports.stEntrega = function(req, res){
     Inner Join Pedidos P On U.IDUsuario = P.IDUsuario
     Inner Join LineaPedidos L On P.IDPedido = L.IDPedido
     Inner Join Catalogo C On L.IDCatalogo = C.IDCatalogo
-    Where L.Estatus = 'En Proceso'`;
+    Where L.Estatus = 'EN ENTREGA'`;
 
         try{
             return conn.query(sql, (error, result) => {
@@ -49,6 +49,56 @@ module.exports.stEntrega = function(req, res){
                     res.json({
                         status: false,
                         message: "Consulta fallida"
+                      })
+                }
+            })
+        }catch(err){
+            console.log(err)
+            process.exit(1)
+        }
+}
+
+module.exports.UpdateEstatusTer = function(IDLineaPedido, res){
+    var sql =  `Update LineaPedidos set Estatus = "EN ENTREGA" Where IDLineaPedido = `+IDLineaPedido
+
+        try{
+            return conn.query(sql, (error, result) => {
+                if(error) throw error;
+
+                if(!error){
+                    res.json({
+                        status: true,
+                        message: "Post Fue Exitoso"
+                      })
+                }else{
+                    res.json({
+                        status: false,
+                        message: "Actualización de estado no fue exitosa"
+                      })
+                }
+            })
+        }catch(err){
+            console.log(err)
+            process.exit(1)
+        }
+}
+
+module.exports.UpdateEstatusEnt = function(IDLineaPedido, res){
+    var sql =  `Update LineaPedidos set Estatus = "ENTREGADO" Where IDLineaPedido = `+IDLineaPedido
+
+        try{
+            return conn.query(sql, (error, result) => {
+                if(error) throw error;
+
+                if(!error){
+                    res.json({
+                        status: true,
+                        message: "Post Fue Exitoso"
+                      })
+                }else{
+                    res.json({
+                        status: false,
+                        message: "Actualización de estado no fue exitosa"
                       })
                 }
             })
