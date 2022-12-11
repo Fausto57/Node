@@ -5,6 +5,7 @@ let carrito = require('../../app/controllers/ControllerCarrito')
 let productos = require('../../app/controllers/ControllerProductos')
 let repartidor = require('../../app/controllers/ControllerRepartidor')
 let pedidos = require('../../app/controllers/ControllerPedidos')
+let login = require('../../app/controllers/ControllerLogin')
 
 // RUTAS EN GENERAL
 
@@ -15,6 +16,10 @@ routes.get('/obtener/:id', general.obtenerID)
 routes.get('/guardar/:id/:nombre/:apellido', general.insertar)
 
 routes.post('/guardarM', express.json({type: '*/*'}), general.insertarMuchos)
+
+// RUTAS DE LOGIN
+
+routes.post('/Login', express.json({type: '*/*'}), login.Login)
 
 // RUTAS PARA EL CARRITO
 
@@ -52,9 +57,9 @@ routes.get('/ObtenerAlfajores', productos.ObtenerAlfajores)
 routes.get('/ObtenerRoles', productos.ObtenerRoles)
 
 // RUTAS PARA EL REPARTIDOR
-routes.get('/OTerminados', repartidor.ObtenerTerminados)
+routes.get('/ObtenerTerminados', repartidor.ObtenerTerminados)
 
-routes.get('/OEntrega', repartidor.ObtenerEntregas)
+routes.get('/ObtenerEntrega', repartidor.ObtenerEntregas)
 
 
 

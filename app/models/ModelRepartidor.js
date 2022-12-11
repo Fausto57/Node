@@ -4,12 +4,11 @@ var conn = db.conexion
 
 //http://127.0.0.1:3000/v1/obtener  Método GET
 module.exports.stTerminados = function(req, res){
-    var sql =  `Select Concat(U.nombre, ' ', U.apellido) As Nombre, U.Direccion, C.Toping, L.idLineaPedido
-    From Usuarios U 
-    inner join Pedidos P on P.idUsuario = U.idUsuario
-    Inner Join LineaPedidos L on P.idPedido = L.idPedido
-    inner join Catalogo C on C.idCatalogo = L.idCatalogo
-    Where L.Estatus = 'Terminado'`;
+    var sql =  `Select L.IDPedido, Concat(U.Nombre, ' ', U.Apellido) as Nombre, U.Direccion  
+    From Usuarios U
+    Inner Join Pedidos P On U.IDUsuario = P.IDUsuario
+    Inner Join LineaPedidos L On P.IDPedido = L.IDPedido
+    Where L.Estatus = 'Autorizado'`;
 
         try{
             return conn.query(sql, (error, result) => {
@@ -32,12 +31,11 @@ module.exports.stTerminados = function(req, res){
 
 //http://127.0.0.1:3000/v1/obtener  Método GET
 module.exports.stEntrega = function(req, res){
-    var sql =  `Select Concat(U.nombre, ' ', U.apellido) As Nombre, U.Direccion, C.Toping, L.idLineaPedido
-    From Usuarios U 
-    inner join Pedidos P on P.idUsuario = U.idUsuario
-    Inner Join LineaPedidos L on P.idPedido = L.idPedido
-    inner join Catalogo C on C.idCatalogo = L.idCatalogo
-    Where L.Estatus = 'Entrega'`;
+    var sql =  `Select L.IDPedido, Concat(U.Nombre, ' ', U.Apellido) as Nombre, U.Direccion  
+    From Usuarios U
+    Inner Join Pedidos P On U.IDUsuario = P.IDUsuario
+    Inner Join LineaPedidos L On P.IDPedido = L.IDPedido
+    Where L.Estatus = 'En Proceso'`;
 
         try{
             return conn.query(sql, (error, result) => {
