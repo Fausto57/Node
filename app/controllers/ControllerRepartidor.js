@@ -1,20 +1,20 @@
-const modelProductos = require('../models/ModelRepartidor')
+const ModelRepartidor = require('../models/ModelRepartidor')
 const express = require('express');
 const app = express()
 app.use(express.json())
 
 module.exports.ObtenerTerminados = function(req, res){
-    return modelProductos.stTerminados(req, res);
+    return ModelRepartidor.stTerminados(req, res);
 }
 
 module.exports.ObtenerEntregas = function(req, res){
-    return modelProductos.stEntrega(req, res);
+    return ModelRepartidor.stEntrega(req, res);
 }
 
 module.exports.ModificaEstatusTer = function(req, res){
-    return model.ModificaEstatusTer(req.body.IDLineaPedido, res);
+    return ModelRepartidor.UpdateEstatusTer(req.body.IDLineaPedido, res);
 }
 
 module.exports.ModificaEstatusEnt = function(req, res){
-    return model.ModificaEstatusEnt(req.body.IDLineaPedido, res);
+    return ModelRepartidor.UpdateEstatusEnt(req.body.IDLineaPedido, res);
 }

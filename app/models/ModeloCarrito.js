@@ -32,7 +32,7 @@ module.exports.CarritoU = function(req, res){
 module.exports.EliminaC = function(req, res){
     var {id} = req.params;
 
-    var sql =  `DELETE FROM lineapedidos WHERE IDLineaPedido = ${id}`;
+    var sql =  `DELETE FROM LineaPedidos WHERE IDLineaPedido = ${id}`;
 
         try{
             return conn.query(sql, (error, result) => {
