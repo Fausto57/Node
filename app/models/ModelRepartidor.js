@@ -4,10 +4,11 @@ var conn = db.conexion
 
 //http://127.0.0.1:3000/v1/obtener  Método GET
 module.exports.stTerminados = function(req, res){
-    var sql =  `Select L.IDPedido, Concat(U.Nombre, ' ', U.Apellido) as Nombre, U.Direccion, C.Toping    
+    var sql =  `Select L.IDPedido, Concat(U.Nombre, ' ', U.Apellido) as Nombre, U.Direccion, C.Toping  
     From Usuarios U
     Inner Join Pedidos P On U.IDUsuario = P.IDUsuario
     Inner Join LineaPedidos L On P.IDPedido = L.IDPedido
+    Inner Join Catalogo C On L.IDCatalogo = C.IDCatalogo
     Where L.Estatus = 'Autorizado'`;
 
         try{
@@ -31,10 +32,11 @@ module.exports.stTerminados = function(req, res){
 
 //http://127.0.0.1:3000/v1/obtener  Método GET
 module.exports.stEntrega = function(req, res){
-    var sql =  `Select L.IDPedido, Concat(U.Nombre, ' ', U.Apellido) as Nombre, U.Direccion, C.Toping    
+    var sql =  `Select L.IDPedido, Concat(U.Nombre, ' ', U.Apellido) as Nombre, U.Direccion, C.Toping  
     From Usuarios U
     Inner Join Pedidos P On U.IDUsuario = P.IDUsuario
     Inner Join LineaPedidos L On P.IDPedido = L.IDPedido
+    Inner Join Catalogo C On L.IDCatalogo = C.IDCatalogo
     Where L.Estatus = 'En Proceso'`;
 
         try{
