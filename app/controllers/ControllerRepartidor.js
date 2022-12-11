@@ -12,9 +12,9 @@ module.exports.ObtenerEntregas = function(req, res){
 }
 
 module.exports.ModificaEstatusTer = function(req, res){
-    return model.ModificaEstatusTer(req.body.idLineaPedido, res);
+    return model.ModificaEstatusTer(req.body.IDLineaPedido, res);
 }
 
 module.exports.ModificaEstatusEnt = function(req, res){
-    return model.ModificaEstatusEnt(req.body.idLineaPedido, res);
+    return model.ModificaEstatusEnt(req.body.IDLineaPedido, res);
 }
