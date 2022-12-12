@@ -24,3 +24,10 @@ setInterval(function () {
 module.exports = {
     conexion
 }
+
+/*
+host = "us-cdbr-east-06.cleardb.net"
+user = "b0d9b08934315a"
+password = "1784882b"
+database = "heroku_7e73c89d1e1685b"
+*/ 
