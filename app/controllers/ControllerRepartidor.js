@@ -12,9 +12,9 @@ module.exports.ObtenerEntregas = function(req, res){
 }
 
 module.exports.ModificaEstatusTer = function(req, res){
-    return ModelRepartidor.UpdateEstatusTer(req.body.IDLineaPedido, res);
+    return ModelRepartidor.UpdateEstatusTer(req.body['idLineaPedido'], res);
 }
 
 module.exports.ModificaEstatusEnt = function(req, res){
-    return ModelRepartidor.UpdateEstatusEnt(req.body.IDLineaPedido, res);
+    return ModelRepartidor.UpdateEstatusEnt(req.body['idLineaPedido'], res);
 }
