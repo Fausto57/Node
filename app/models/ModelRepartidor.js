@@ -78,6 +78,10 @@ module.exports.UpdateEstatusTer = function(IDLineaPedido, res){
                 }
             })
         }catch(err){
+            return res.json({
+                status: false,
+                message: err.message
+              })
             console.log(err)
             process.exit(1)
         }
@@ -103,6 +107,10 @@ module.exports.UpdateEstatusEnt = function(IDLineaPedido, res){
                 }
             })
         }catch(err){
+            return res.json({
+                status: false,
+                message: err.message
+              })
             console.log(err)
             process.exit(1)
         }
