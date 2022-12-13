@@ -33,7 +33,7 @@ routes.get('/ObtenerCarrito/:id', carrito.obtenerCarrito)
 
 routes.post('/PagarCarrito', express.json({type: '*/*'}), carrito.pagarCarrito)
 
-routes.post('/AgregarCarrito', express.json({type: '*/*'}), carrito.AgregaAlCarrito)
+routes.post('/AgregarCarrito', cors(), express.json({type: '*/*'}), carrito.AgregaAlCarrito)
 
 routes.post('/AgregarPasteles', express.json({type: '*/*'}), carrito.AgregaPasteles)
 
