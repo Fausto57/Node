@@ -21,7 +21,10 @@ function InitApp(app){
 
     app.use(cors({
         origin: '*',
-        methods: ['GET', 'POST']
+        methods: '*',
+        optionsSuccessStatus: 200,
+        'Access-Control-Allow-Origin': '*'
+
     }));    
 
     app.listen(port, () => console.log(`Corriendo en el puerto ${port}`))
