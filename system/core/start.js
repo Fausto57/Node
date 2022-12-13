@@ -20,7 +20,8 @@ function InitApp(app){
     app.use(bodyParser.json())
 
     app.use(cors({
-        origin: '*'
+        origin: '*',
+        methods: ['GET', 'POST']
     }));    
 
     app.listen(port, () => console.log(`Corriendo en el puerto ${port}`))

@@ -12,12 +12,12 @@ module.exports.eliminaCarrito = function(req, res){
 }
 
 module.exports.AgregaAlCarrito = function(req, res){
-    return model.AgregaC(req.body.idUser, req.body.Cantidad, req.body.idCatalogo, res);
+    return model.AgregaC(req.body['idUser'], req.body['Cantidad'], req.body['idCatalogo'], res);
 }
 
 module.exports.AgregaPasteles = function(req, res){
-    return model.AgregaCPasteles(req.body.idUser, req.body.Tamaño, req.body.Estilo, 
-        req.body.Fecha, req.body.Descripcion, req.body.Imagen, req.body.idProd, res);
+    return model.AgregaCPasteles(req.body['idUser'], req.body['Tamaño'], req.body['Estilo'], 
+        req.body['Fecha'], req.body['Descripcion'], req.body['Imagen'], req.body['idProd'], res);
 }
 
 module.exports.obtenerPedido = function(req, res){
