@@ -17,9 +17,23 @@ module.exports = function(app){
 
 function InitApp(app){
     const port = process.env.PORT || 3000;
+
     app.use(bodyParser.json())
 
-    app.use(cors())
+    const corsOpts = {
+        origin: 'http://localhost/:8080',
+      
+        methods: [
+          'GET',
+          'POST',
+        ],
+      
+        allowedHeaders: [
+          'Content-Type',
+        ],
+      };
+
+    app.use(cors(corsOpts))
 
     app.listen(port, () => console.log(`Corriendo en el puerto ${port}`))
 }
