@@ -1,5 +1,4 @@
 const bodyParser = require('body-parser')
-const cors = require('cors');
 
 module.exports = function(app){
     let apiRoutes = require("../routes/routes");
@@ -19,21 +18,6 @@ function InitApp(app){
     const port = process.env.PORT || 3000;
 
     app.use(bodyParser.json())
-
-    const corsOpts = {
-        origin: 'http://localhost/:8080',
-      
-        methods: [
-          'GET',
-          'POST',
-        ],
-      
-        allowedHeaders: [
-          'Content-Type',
-        ],
-      };
-
-    app.use(cors(corsOpts))
 
     app.listen(port, () => console.log(`Corriendo en el puerto ${port}`))
 }
